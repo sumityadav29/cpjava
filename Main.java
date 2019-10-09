@@ -16,6 +16,17 @@ public class Main{
 		System.out.println(n);*/
 	}
 	
+	public static long fastpow(long x, long y, long m){
+	    long res = 1;
+	    while (y > 0){
+	        if((y & 1) == 1)
+	            res = (res * x) % m;
+	        y = y >> 1;
+	        x = (x * x) % m;
+	    }
+	    return res;
+	}
+	
 	static class InputReader{
 		BufferedReader br;
 		StringTokenizer st;

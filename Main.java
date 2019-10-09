@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 public class Main{
 	public static void main(String args[]){
 		/*long bit[] = {0,0,0,0,0,0,0,0,0};
@@ -7,7 +10,55 @@ public class Main{
 		System.out.println(BIT.pointQuery(bit, 6));
 		System.out.println(BIT.pointQuery(bit, 0));
 		System.out.println(BIT.pointQuery(bit, 4));*/
+		
+		/*InputReader sc = new InputReader();
+		int n = sc.nextInt();
+		System.out.println(n);*/
 	}
+	
+	static class InputReader{
+		BufferedReader br;
+		StringTokenizer st;
+        
+        public InputReader(){
+        	br = new BufferedReader(new
+            InputStreamReader(System.in)); 
+        }
+        
+        String next(){
+        	while (st == null || !st.hasMoreElements()){
+        		try{
+        			st = new StringTokenizer(br.readLine()); 
+                }catch (IOException  e){
+                	e.printStackTrace(); 
+                }
+            }
+            return st.nextToken(); 
+        }
+        
+        int nextInt(){
+        	return Integer.parseInt(next()); 
+        }
+        
+        long nextLong(){
+        	return Long.parseLong(next()); 
+        }
+        
+        double nextDouble(){
+        	return Double.parseDouble(next()); 
+        }
+        
+        String nextLine(){
+        	String str = "";
+        	try{
+        		str = br.readLine();
+        	}catch (IOException e){
+        		e.printStackTrace(); 
+            }
+            return str; 
+        }
+    }
+	
 }
 
 

@@ -2,6 +2,8 @@ import java.util.*;
 import java.io.*;
 
 public class Main{
+	static List<Integer> primes = new ArrayList<Integer>();
+	
 	public static void main(String args[]){
 		/*long bit[] = {0,0,0,0,0,0,0,0,0};
 		BIT.rangeAdd(bit, 2, 5, 5);
@@ -14,17 +16,41 @@ public class Main{
 		/*InputReader sc = new InputReader();
 		int n = sc.nextInt();
 		System.out.println(n);*/
+		
+		/*System.out.println(fastpow(2, 5, Long.MAX_VALUE));*/
+		
+		/*boolean sieve[] = new boolean[100001];
+		generatePrimes(sieve);
+		System.out.println(primes);*/
+	}
+	
+	/*
+	 * sieve of eratosthenes
+	 * generates all primes <= sieve.length
+	 */
+	public static void generatePrimes(boolean sieve[]){
+		for (int i = 2 ; i*i <= sieve.length ; i++){
+			if (!sieve[i]){
+				for (int j = i ; j < sieve.length ; j += i){
+					sieve[j] = true;
+				}
+				primes.add(i);
+			}
+		}
+		for (int i = 2 ; i < sieve.length ; i++){
+			if (!sieve[i]) primes.add(i);
+		}
 	}
 	
 	public static long fastpow(long x, long y, long m){
-	    long res = 1;
-	    while (y > 0){
-	        if((y & 1) == 1)
-	            res = (res * x) % m;
-	        y = y >> 1;
-	        x = (x * x) % m;
-	    }
-	    return res;
+		long res = 1;
+		while (y > 0){
+			if((y & 1) == 1)
+				res = (res * x) % m;
+			y = y >> 1;
+			x = (x * x) % m;
+		}
+		return res;
 	}
 	
 	static class InputReader{

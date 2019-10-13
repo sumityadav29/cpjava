@@ -4,7 +4,7 @@ import java.io.*;
 public class Main{
 	static List<Integer> primes = new ArrayList<Integer>();
 	
-	public static void main(String args[]){
+	public static void main(String args[]) throws Exception{
 		/*long bit[] = {0,0,0,0,0,0,0,0,0};
 		BIT.rangeAdd(bit, 2, 5, 5);
 		BIT.rangeAdd(bit, 2, 3, 5);
@@ -22,6 +22,14 @@ public class Main{
 		/*boolean sieve[] = new boolean[100001];
 		generatePrimes(sieve);
 		System.out.println(primes);*/
+		
+		InputReader ip = new InputReader(new FileInputStream("input.txt"));
+		System.out.println(ip.nextLine());
+		System.out.println(ip.next());
+		System.out.println(ip.next());
+		System.out.println(ip.next());
+		System.out.println(ip.nextInt());
+		
 	}
 	
 	/*
@@ -53,13 +61,21 @@ public class Main{
 		return res;
 	}
 	
+	/*
+	 * To read from stdin use - InputReader(System.in);
+	 * To read from file use - InputReader(new FileInputStream("filename.txt"));
+	 */
 	static class InputReader{
 		BufferedReader br;
 		StringTokenizer st;
         
-        public InputReader(){
-        	br = new BufferedReader(new
-            InputStreamReader(System.in)); 
+        public InputReader(InputStream in){
+        	try {
+        		br = new BufferedReader(new
+        				InputStreamReader(in)); 
+        	}catch (Exception e) {
+        		System.out.println(e.toString());
+        	}
         }
         
         String next(){

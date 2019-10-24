@@ -23,12 +23,15 @@ public class Main{
 		generatePrimes(sieve);
 		System.out.println(primes);*/
 		
-		InputReader ip = new InputReader(new FileInputStream("input.txt"));
+		/*InputReader ip = new InputReader(new FileInputStream("input.txt"));
 		System.out.println(ip.nextLine());
 		System.out.println(ip.next());
 		System.out.println(ip.next());
 		System.out.println(ip.next());
-		System.out.println(ip.nextInt());
+		System.out.println(ip.nextInt());*/
+		long m = 1000000009;
+		long ncr = ((120) * (fastpow((6*fastpow(2,m-2,m))%m,m-2,m)))%m;
+		System.out.println((ncr*125*441)%m);
 		
 	}
 	
@@ -39,10 +42,9 @@ public class Main{
 	public static void generatePrimes(boolean sieve[]){
 		for (int i = 2 ; i*i <= sieve.length ; i++){
 			if (!sieve[i]){
-				for (int j = i ; j < sieve.length ; j += i){
+				for (int j = i*i ; j < sieve.length ; j += i){
 					sieve[j] = true;
 				}
-				primes.add(i);
 			}
 		}
 		for (int i = 2 ; i < sieve.length ; i++){
